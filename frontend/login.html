@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Login | Hotel System
+    </title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        *{
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body{
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+            linear-gradient(
+                -45deg,
+                #020024,
+                #090979,
+                #00d4ff,
+                #000000
+            );
+
+            background-size: 400% 400%;
+
+            animation:
+            fondoAnimado 12s ease infinite;
+
+        }
+
+        @keyframes fondoAnimado{
+
+            0%{
+
+                background-position: 0% 50%;
+
+            }
+
+            50%{
+
+                background-position: 100% 50%;
+
+            }
+
+            100%{
+
+                background-position: 0% 50%;
+
+            }
+
+        }
+
+        .particles{
+
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            z-index: 1;
+
+        }
+
+        .particles span{
+
+            position: absolute;
+
+            display: block;
+
+            width: 20px;
+            height: 20px;
+
+            background: rgba(255,255,255,0.1);
+
+            animation:
+            animar 25s linear infinite;
+
+            bottom: -150px;
+
+            border-radius: 50%;
+
+            backdrop-filter: blur(5px);
+
+        }
+
+        .particles span:nth-child(1){
+
+            left: 10%;
+            width: 40px;
+            height: 40px;
+            animation-duration: 18s;
+
+        }
+
+        .particles span:nth-child(2){
+
+            left: 25%;
+            width: 20px;
+            height: 20px;
+            animation-duration: 10s;
+
+        }
+
+        .particles span:nth-child(3){
+
+            left: 40%;
+            width: 50px;
+            height: 50px;
+            animation-duration: 22s;
+
+        }
+
+        .particles span:nth-child(4){
+
+            left: 60%;
+            width: 30px;
+            height: 30px;
+            animation-duration: 16s;
+
+        }
+
+        .particles span:nth-child(5){
+
+            left: 80%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 25s;
+
+        }
+
+        @keyframes animar{
+
+            0%{
+
+                transform:
+                translateY(0)
+                rotate(0deg);
+
+                opacity: 0;
+
+            }
+
+            10%{
+
+                opacity: 1;
+
+            }
+
+            100%{
+
+                transform:
+                translateY(-1000px)
+                rotate(720deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+        .login-box{
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 400px;
+
+            padding: 50px;
+
+            border-radius: 25px;
+
+            background:
+            rgba(0,0,0,0.35);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+            0 0 40px rgba(0,0,0,0.5);
+
+            border:
+            1px solid rgba(255,255,255,0.1);
+
+            color: white;
+
+        }
+
+        .login-box h1{
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+            font-size: 2.5rem;
+
+            font-weight: bold;
+
+        }
+
+        .form-control{
+
+            height: 50px;
+
+            background:
+            rgba(255,255,255,0.1);
+
+            border: none;
+
+            color: white;
+
+        }
+
+        .form-control:focus{
+
+            background:
+            rgba(255,255,255,0.15);
+
+            color: white;
+
+            box-shadow:
+            0 0 15px #00d4ff;
+
+        }
+
+        .form-control::placeholder{
+
+            color: rgba(255,255,255,0.6);
+
+        }
+
+        .btn-login{
+
+            width: 100%;
+
+            height: 50px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            font-size: 1.1rem;
+
+            font-weight: bold;
+
+            background:
+            linear-gradient(
+                45deg,
+                #00d4ff,
+                #090979
+            );
+
+            color: white;
+
+            transition: 0.3s;
+
+        }
+
+        .btn-login:hover{
+
+            transform: scale(1.03);
+
+            box-shadow:
+            0 0 20px #00d4ff;
+
+        }
+
+        .hotel-icon{
+
+            text-align: center;
+
+            font-size: 4rem;
+
+            margin-bottom: 20px;
+
+        }
+
+        .footer-text{
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            opacity: 0.7;
+
+            font-size: 0.9rem;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="particles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <div class="login-box">
+
+        <div class="hotel-icon">
+            🏨
+        </div>
+
+        <h1>
+            Hotel System
+        </h1>
+
+        <input
+            type="text"
+            id="usuario"
+            class="form-control mb-4"
+            placeholder="Usuario"
+        >
+
+        <input
+            type="password"
+            id="password"
+            class="form-control mb-4"
+            placeholder="Contraseña"
+        >
+
+        <button
+            class="btn-login"
+            onclick="login()"
+        >
+            🚀 Ingresar
+        </button>
+
+        <div class="footer-text">
+            Sistema Hotelero Premium 😎
+        </div>
+
+    </div>
+
+    <script>
+
+        async function login(){
+
+            const usuario =
+            document.getElementById(
+                "usuario"
+            ).value;
+
+            const password =
+            document.getElementById(
+                "password"
+            ).value;
+
+            const response =
+            await fetch("/login", {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type":
+                    "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    usuario,
+                    password
+
+                })
+
+            });
+
+            const data =
+            await response.json();
+
+            if(data.success){
+
+                localStorage.setItem(
+                    "usuario",
+                    usuario
+                );
+
+                window.location.href =
+                "/";
+
+            }else{
+
+                alert(
+                    "❌ Usuario o contraseña incorrectos"
+                );
+
+            }
+
+        }
+
+    </script>
+
+<footer class="footer-hotel">
+
+    <p>
+        🏨 Desarrollado por 
+        <strong>Marlon</strong> & 
+        <strong>Esteban</strong>
+    </p>
+
+    <p class="frase-random">
+        “Mientras otros duermen... nosotros facturamos 😎💸”
+    </p>
+
+</footer>
+</body>
+
+</html>
